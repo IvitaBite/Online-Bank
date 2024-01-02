@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-custom {
+    background-color: #efede7;
+}
+
+.bg-custom-color {
+    background-color: #aca07f;
+}
+
+.button {
+    background-color: #837246;
+    color: #efede7;
+}
+
+.button:hover {
+    background-color: #978962;
+}
+
+.form {
+    background-color: #c1b79c;
+    color: #978962;
+    border-radius: 8px;
+}
+
+.custom-color {
+    color: #6d653e;
+}
+
+.custom-label {
+    font-size: 1.10rem;
+}
+
+.input-field::placeholder {
+    color: #6d653e;
+}
