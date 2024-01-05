@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CryptoCurrency extends Model
 {
@@ -55,5 +56,10 @@ class CryptoCurrency extends Model
     public function currency(): BelongsTo
     {
         return $this->belongsTo(Currency::class, 'currency_symbol', 'symbol');
+    }
+
+    public function investments(): HasMany
+    {
+        return $this->hasMany(Investment::class, 'symbol', 'symbol');
     }
 }

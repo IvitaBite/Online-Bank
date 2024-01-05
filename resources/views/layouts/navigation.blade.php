@@ -31,13 +31,13 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('transactions')" :active="request()->routeIs('transactions')"
+                    <x-nav-link :href="route('transactions.create')" :active="request()->routeIs('transactions.create') && request()->query('transactions.create')"
                                 class="text-yellow-900 hover:text-yellow-950 hover:border-yellow-950">
                         {{ __('Transaction') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('history')" :active="request()->routeIs('history')"
+                    <x-nav-link :href="route('history')" :active="request()->routeIs('history') && request()->query('history')"
                                 class="text-yellow-900 hover:text-yellow-950 hover:border-yellow-950">
                         {{ __('History') }}
                     </x-nav-link>
@@ -125,3 +125,29 @@
         </div>
     </div>
 </nav>
+@if(session()->has('success') || session()->has('error'))
+    <script>
+        @if(session()->has('success'))
+        Swal.fire({
+            title: 'Success!',
+            text: '{{ session()->get('success') }}',
+            icon: 'success',
+            confirmButtonText: 'Okay',
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        });
+        @endif
+        @if(session()->has('error'))
+        Swal.fire({
+            title: 'Error!',
+            text: '{{ session()->get('error') }}',
+            icon: 'error',
+            confirmButtonText: 'Okay',
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        });
+        @endif
+    </script>
+@endif

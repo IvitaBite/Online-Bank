@@ -12,14 +12,12 @@ return new class extends Migration
             $table->id();
             $this->createAccountNumberField($table, 'account_number_from');
             $this->createAccountNumberField($table, 'account_number_to');
-            $table->integer('amount')->default(0);
+            $table->integer('amount');
             $table->string('currency_symbol_from');
-            $table->string('currency_symbol_to')->nullable();
-            $table->decimal('exchange_rate', 30, 15)->nullable();
-            $table->string('description')->nullable();
+            $table->string('currency_symbol_to');
+            $table->decimal('exchange_rate', 30, 15);
+            $table->string('description');
             $table->string('type');
-            $table->enum('status', ['Pending', 'Completed', 'Failed']);
-            $table->boolean('is_confirmed')->default(false);
             $table->timestamps();
         });
     }

@@ -42,7 +42,6 @@ class FetchCurrencyRatesCommand extends Command
                 ], [
                     'rate' => $rate,
                 ]);
-
             }
         } catch (GuzzleException $e) {
             return 1;

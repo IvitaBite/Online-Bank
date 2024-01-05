@@ -5,7 +5,8 @@
                 {{ __('Investment Accounts') }}
             </h2>
             <div class="text-right">
-                <a href="{{ route('accounts.create') }}" class="text-yellow-900 hover:text-yellow-950">Create New Account</a>
+                <a href="{{ route('accounts.create') }}" class="text-yellow-900 hover:text-yellow-950">Create New
+                    Account</a>
             </div>
         </div>
     </x-slot>
@@ -14,7 +15,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-custom-color overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-                        <a href="{{ route('accounts.show', $account->account_name) }}">{{ $account->account_name }}</a>
+                        <a href="{{ route('investments.show', $account->account_name) }}">{{ $account->account_name }}</a>
                         <div class="flex items-center justify-end mt-4">
                             <a href="{{ route('accounts.edit', $account->account_name) }}">
                                 <x-primary-button class="ms-4 button">

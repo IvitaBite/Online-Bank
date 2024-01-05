@@ -21,7 +21,7 @@ return new class extends Migration
                 ->on('currencies')
                 ->onDelete('cascade');
             $table->integer('balance')->default(0);
-            $table->enum('status', ['active', 'closed', 'blocked'])->default('active');
+            $table->enum('status', ['active', 'blocked'])->default('active');
             $table->timestamps();
         });
     }

@@ -37,7 +37,7 @@ class Account extends Model
         static::creating(function (Account $account) {
             $account->account_number = $account->generateIban();
 
-            if (strcasecmp($account->type, 'Checking') === 0) {
+            if (strcasecmp($account->type, 'checking') === 0) {
                 $account->balance = $account->generateInitialBalance();
             }
         });
@@ -74,5 +74,10 @@ class Account extends Model
     {
         return $this->hasMany(Transaction::class, 'account_number_from')
             ->orWhere('account_number_to','account_number');
+    }
+
+    public function investments(): HasMany
+    {
+        return $this->hasMany(Investment::class, 'account_number', 'account_number');
     }
 }

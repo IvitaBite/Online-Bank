@@ -5,17 +5,17 @@
         </h2>
 
         <p class="mt-1 text-sm text-yellow-900">
-            {{ __('Once the chosen account is deleted, all of its data will be permanently deleted. Before deleting the bank account, please download any data or information that you wish to retain. Precondition: only accounts with a balance of 0.00 can be deleted.') }}
+            {{ __('Deleting the selected account will result in the permanent removal of all associated data. Prior to deleting the bank account, we recommend downloading any data or information you wish to keep. Please note that only accounts with a balance of 0.00 and no active investments or savings can be deleted.') }}
         </p>
     </header>
 
     <x-danger-button
         x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
+        x-on:click.prevent="$dispatch('open-modal', 'confirm-account-deletion')"
     >{{ __('Delete Account') }}</x-danger-button>
 
-    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-        <form method="post" action="{{ route('profile.destroy') }}" class="p-6 bg-custom">
+    <x-modal name="confirm-account-deletion" :show="$errors->accountDeletion->isNotEmpty()" focusable>
+        <form method="post" action="{{ route('accounts.destroy', $account->account_name) }}" class="p-6 bg-custom">
             @csrf
             @method('delete')
 
@@ -38,7 +38,7 @@
                     placeholder="{{ __('Password') }}"
                 />
 
-                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                <x-input-error :messages="$errors->accountDeletion->get('password')" class="mt-2" />
             </div>
 
             <div class="mt-6 flex justify-end">

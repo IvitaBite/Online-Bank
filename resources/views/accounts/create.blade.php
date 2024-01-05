@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl text-yellow-950 leading-tight">
-                {{ __('Create New Accounts') }}
+                {{ __('Create New Account') }}
             </h2>
         </div>
     </x-slot>

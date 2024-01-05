@@ -16,10 +16,10 @@ class FetchCryptoCurrencyRatesCommand extends Command
 
     protected $description = 'Fetch all cryptocurrency rates from API and update the rates in the database.';
 
-    private const BASE_URL = 'https://api.coinbase.com/v2/';
+    private const BASE_URL = 'https://api.coinbase.com/v2/'; //todo env file jo atkārtojas
 
 
-    public function handle(): int
+    public function handle(): int //todo pielabot try and catch
     {
         $client = new Client();
 

@@ -36,3 +36,16 @@
 .input-field::placeholder {
     color: #6d653e;
 }
+
+.bold-and-large {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.large {
+    font-size: larger;
+}
+
+.bold {
+    font-weight: bold;
+}
